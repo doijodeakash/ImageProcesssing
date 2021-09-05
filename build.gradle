@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version "3.0.3"
+}
+
+repositories {
+	mavenCentral()
+}
+
+war {
+	archiveFileName = 'imagepro.war'
+}
+
+gretty {
+	contextPath = '/imagepro'
+}
+
+dependencies {
+	implementation fileTree(dir: 'lib', include: ['*.jar'])
+
+	implementation 'org.slf4j:slf4j-api:1.7.25'    // Default dependency
+	compileOnly 'javax.servlet:javax.servlet-api:3.1.0'    // Default dependency
+	implementation 'ch.qos.logback:logback-classic:1.2.3'    // Default dependency
+	implementation 'org.openpnp:opencv:4.5.1-2'    // Library [X.ImageProcessing] opencv-4.5.1-2.jar
+	implementation 'javax.websocket:javax.websocket-api:1.0'    // Default dependency
+	implementation 'net.sourceforge.tess4j:tess4j:4.5.5'    // Library [X.ImageProcessing] opencv-4.5.1-2.jar
+	implementation 'commons-fileupload:commons-fileupload:1.4'    // Library [Demo13.imageprocessing] commons-fileupload
+
+
+	// Test dependencies
+	testImplementation group:'junit', name:'junit', version:'4.12'
+	testImplementation group:'httpunit', name:'httpunit', version:'1.7'
+	testImplementation "org.mockito:mockito-core:1.+" 
+}

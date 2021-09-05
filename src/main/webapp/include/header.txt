@@ -1,0 +1,3 @@
+ <div class="header">
+  <a href="<%= request.getContextPath() %>"><h1>Image Processing<span>With jQuery and CSS</span></h1></a>
+ </div>
